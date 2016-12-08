@@ -29,7 +29,7 @@ public class ClienteCurso {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8083/CursoRest/webresources";
+    private static final String BASE_URI = "http://localhost:8083/UniversidadeWeb/webresources";
 
     public ClienteCurso() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
