@@ -24,7 +24,6 @@
                         <!--a class="navbar-brand" href="#">Logo</a-->
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
-
                     </div>
                 </div>
             </nav>
@@ -40,44 +39,18 @@
                     </div>
                     <div class="col-sm-8 text-left">
                         <h1>Usuário</h1>
-                        <h:dataTable var="curso" value="#{cursoMB.listaCursos}" styleClass="table table-bordered">
-                            <f:facet name="header">
-                                <h:outputText value="Tabela de Curso"/>
-                            </f:facet>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="ID"/>
-                                </f:facet>
-                                <h:outputText value="#{curso.id}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Nome"/>
-                                </f:facet>
-                                <h:outputText value="#{curso.nome}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Semestres"/>
-                                </f:facet>
-                                <h:outputText value="#{curso.semestres}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Tipo Curso"/>
-                                </f:facet>
-                                <h:outputText value="#{curso.tipoCurso}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Opções"/>
-                                </f:facet>
-                                <h:commandButton value="Editar" styleClass="btn btn-primary" action="#{cursoMB.editarCurso(curso)}" />
-                                <h:commandButton value="Excluir" styleClass="btn btn-primary" action="#{cursoMB.excluirCurso(curso)}" />
-                            </h:column>
-                        </h:dataTable>
-                        <h:commandButton value="Novo Curso" styleClass="btn btn-primary" action="#{cursoMB.criarCurso()}"/><br/>
-                        <hr/>
+                        <h:panelGrid columns="2" border="0" styleClass="table table-bordered" >
+                            <h:outputLabel for="idNome" value="Nome: "/>
+                            <h:inputText id="idNome" value="#{cursoMB.curso.nome}"  />
+
+                            <h:outputLabel for="idCargaHoraria" value="Carga Horaria: "/>
+                            <h:inputText id="idCargaHoraria" value="#{cursoMB.curso.cargaHoraria}" />
+                            
+                            <h:outputLabel for="idSemestres" value="Semestres: "/>
+                            <h:inputText id="idSemestres" value="#{cursoMB.curso.semestres}" />
+                        </h:panelGrid>
+                        <h:commandButton value="Cadastrar" styleClass="btn btn-primary" action="#{cursoMB.adicionarCurso()}"/>
+                        <h:button value="Voltar" styleClass="btn btn-primary" outcome="curso"/>
                     </div>
                     <div class="col-sm-2 sidenav">
                         <div class="well">
